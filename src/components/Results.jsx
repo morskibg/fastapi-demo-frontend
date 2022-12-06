@@ -43,10 +43,10 @@ const Results = () => {
     }, [occurrences])      
     
     const fetchOccurrences = async () =>{
-        const response = await fetch("http://localhost:8000/occurrences")
+        const response = await fetch("https://morski-backend.herokuapp.com/occurrences")
         const occurrences = await response.json()        
         setOccurrences(occurrences)        
-        const aggrResponse = await fetch("http://localhost:8000/aggr-occurrences")
+        const aggrResponse = await fetch("https://morski-backend.herokuapp.com/aggr-occurrences")
         const aggrOccurrences = await aggrResponse.json()               
         setaggrOccurrences(aggrOccurrences)        
     }

@@ -14,7 +14,7 @@ const Words = () => {
     const [selectedVal, setSelectedVal] = useState('');
     
     const saveWord = async (word) => {
-        fetch(`http://localhost:8000/words?word=${word}`, {method: "POST"})
+        fetch(`https://morski-backend.herokuapp.com/words?word=${word}`, {method: "POST"})
         .then((response) => response.json())
         .then((json) => {            
             if(json.data[0] !== "Word added."){                
@@ -27,7 +27,7 @@ const Words = () => {
     }
 
     const deleteWord = async (word) => {
-        fetch(`http://localhost:8000/words?word=${word}`, {
+        fetch(`https://morski-backend.herokuapp.com/words?word=${word}`, {
             method: "DELETE"                   
         })
         .then((response) => response.json())
@@ -42,7 +42,7 @@ const Words = () => {
     }
 
     const fetchWords = async () => {               
-        const response = await fetch("http://localhost:8000/words")
+        const response = await fetch("https://morski-backend.herokuapp.com/words")
         const words = await response.json()
         setWords(words.data)
     }  

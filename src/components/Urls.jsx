@@ -13,7 +13,7 @@ const Urls = () => {
     const [selectedVal, setSelectedVal] = useState('');
     
     const saveUrl = async (url) => {
-        fetch(`http://localhost:8000/urls?url=${url}`, {method: "POST"})
+        fetch(`https://morski-backend.herokuapp.com/urls?url=${url}`, {method: "POST"})
         .then((response) => response.json())
         .then((json) => {            
             if(json.data[0] !== "Url added."){                
@@ -26,7 +26,7 @@ const Urls = () => {
     }
 
     const deleteUrl = async (url) => {
-        fetch(`http://localhost:8000/urls?url=${url}`, {
+        fetch(`https://morski-backend.herokuapp.com/urls?url=${url}`, {
             method: "DELETE"                   
         })
         .then((response) => response.json())
@@ -41,7 +41,7 @@ const Urls = () => {
     }
 
     const fetchUrls = async () => {               
-        const response = await fetch("http://localhost:8000/urls")
+        const response = await fetch("https://morski-backend.herokuapp.com/urls")
         const urls = await response.json()
         setUrls(urls.data)
     }  
